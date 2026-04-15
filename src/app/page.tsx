@@ -51,12 +51,21 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-orange-400 font-bold text-xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-              </span>
-              AVAILABLE FOR NEW PROJECTS
+            {/* Avatar + Badge Row — Opsi A */}
+            <div className="flex items-center gap-4">
+              <div className="relative flex-shrink-0">
+                <div className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-orange-500 ring-offset-2 ring-offset-slate-900">
+                  <img src="/profile.jpg" alt="Reza" className="w-full h-full object-cover object-top grayscale-[0.1]" />
+                </div>
+                <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-orange-500 rounded-full border-2 border-slate-900"></span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-orange-400 font-bold text-xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                AVAILABLE FOR NEW PROJECTS
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -89,42 +98,47 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Right Side — About snapshot */}
+          {/* Right Side — Info Cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-4"
           >
-            {/* About card */}
-            <div className="aero-card space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-orange-400 font-black uppercase tracking-widest">About Me</span>
-                <ArrowUpRight size={14} className="text-orange-400" />
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                I am a passionate developer with expertise in building end-to-end digital products—from pixel-perfect React frontends and robust Node.js backends, to native Android apps with Jetpack Compose. I love blending technical precision with creative design.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {['React', 'Next.js', 'Node.js', 'Kotlin', 'PostgreSQL', 'Tailwind'].map(t => (
-                  <span key={t} className="text-[10px] font-bold px-2 py-1 bg-orange-950/50 border border-orange-900/40 text-orange-300 rounded-full">{t}</span>
-                ))}
-              </div>
-            </div>
-
             {/* Three value props */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { icon: <Zap size={18}/>, label: 'Fast', desc: 'Optimized for performance' },
-                { icon: <Shield size={18}/>, label: 'Secure', desc: 'Best security practices' },
-                { icon: <Layers size={18}/>, label: 'Scalable', desc: 'Built to grow with you' },
+                { icon: <Zap size={18}/>, label: 'Fast', desc: 'Optimized performance' },
+                { icon: <Shield size={18}/>, label: 'Secure', desc: 'Best practices' },
+                { icon: <Layers size={18}/>, label: 'Scalable', desc: 'Built to grow' },
               ].map((item, i) => (
                 <div key={i} className="aero-card !p-4 text-center space-y-2">
                   <div className="text-orange-400 flex justify-center">{item.icon}</div>
-                  <p className="text-white font-black text-sm uppercase">{item.label}</p>
+                  <p className="text-white font-black text-xs uppercase">{item.label}</p>
                   <p className="text-slate-500 text-[10px] leading-tight">{item.desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* About snippet card */}
+            <div className="aero-card space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-orange-500/40 flex-shrink-0">
+                  <img src="/profile.jpg" alt="Reza" className="w-full h-full object-cover object-top" />
+                </div>
+                <div>
+                  <p className="text-white font-black text-sm italic">Reza Herdiansyah</p>
+                  <p className="text-orange-400 text-[10px] font-bold uppercase tracking-widest">Fullstack & Mobile Dev</p>
+                </div>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Passionate developer building end-to-end digital products — from pixel-perfect React UIs to robust backends and native Android apps.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                {['React', 'Next.js', 'Node.js', 'Kotlin', 'PostgreSQL'].map(t => (
+                  <span key={t} className="text-[10px] font-bold px-2 py-0.5 bg-orange-950/50 border border-orange-900/40 text-orange-300 rounded-full">{t}</span>
+                ))}
+              </div>
             </div>
 
             {/* Currently working on */}
@@ -136,7 +150,7 @@ export default function Home() {
                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Currently Working On</p>
                 <p className="text-white font-black text-sm">Langkah Kopi POS + Mobile App</p>
               </div>
-              <span className="ml-auto text-[10px] text-orange-400 font-bold border border-orange-500/30 px-2 py-1 rounded-full">IN PROGRESS</span>
+              <span className="ml-auto text-[10px] text-orange-400 font-bold border border-orange-500/30 px-2 py-1 rounded-full flex-shrink-0">IN PROGRESS</span>
             </div>
           </motion.div>
         </section>
@@ -155,6 +169,69 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-6 space-y-24 py-24">
+
+          {/* ═══ ABOUT (Opsi C) ═══ */}
+          <section id="about" className="grid lg:grid-cols-2 gap-8 items-stretch">
+            {/* Left: editorial photo */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden min-h-[420px]"
+            >
+              <img
+                src="/profile.jpg"
+                alt="Reza Herdiansyah"
+                className="w-full h-full object-cover object-top"
+                style={{ filter: 'grayscale(0.3) contrast(1.1) brightness(0.85)' }}
+              />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent"></div>
+              {/* Orange duotone rim */}
+              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/30 via-transparent to-transparent"></div>
+              {/* Caption */}
+              <div className="absolute bottom-6 left-6">
+                <p className="text-white font-black italic text-2xl uppercase tracking-tight">Reza Herdiansyah</p>
+                <p className="text-orange-400 text-xs font-bold uppercase tracking-[0.2em]">Fullstack & Mobile Developer</p>
+              </div>
+              {/* Orange accent line */}
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600"></div>
+            </motion.div>
+
+            {/* Right: about text */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="flex flex-col justify-center space-y-6"
+            >
+              <div>
+                <span className="text-orange-400 font-black italic tracking-widest uppercase text-xs">Who I Am</span>
+                <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter italic uppercase mt-1">About Me</h2>
+              </div>
+              <p className="text-slate-400 leading-relaxed">
+                Saya adalah seorang <span className="text-white font-bold">Fullstack &amp; Mobile Developer</span> yang passionate dalam membangun produk digital yang berkualitas tinggi dari nol hingga production-ready.
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                Dengan pengalaman di berbagai stack teknologi — mulai dari React &amp; Next.js di frontend, Node.js &amp; PostgreSQL di backend, hingga Android Native dengan Kotlin — saya bisa menangani semua layer sebuah aplikasi modern.
+              </p>
+              <div className="grid grid-cols-2 gap-4 pt-2 border-t border-slate-800">
+                {[
+                  { value: '3+', label: 'Years Experience' },
+                  { value: '20+', label: 'Projects Delivered' },
+                  { value: '3', label: 'Platforms Mastered' },
+                  { value: '100%', label: 'Client Satisfaction' },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <p className="text-3xl font-black text-white italic">{s.value}</p>
+                    <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </section>
 
           {/* ═══ PROJECTS ═══ */}
           <section id="projects" className="space-y-10">
