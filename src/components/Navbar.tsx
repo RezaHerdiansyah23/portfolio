@@ -17,7 +17,7 @@ export const Navbar = () => {
         </div>
 
         <button className="bg-gradient-to-tr from-orange-600 to-orange-400 text-white px-5 py-1.5 rounded-full font-bold text-xs shadow-md hover:scale-105 active:scale-95 transition-all">
-          LET'S TALK
+          LET&apos;S TALK
         </button>
       </div>
     </nav>

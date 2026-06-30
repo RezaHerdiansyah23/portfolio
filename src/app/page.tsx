@@ -14,7 +14,6 @@ import {
   Code2,
   Terminal,
   Cpu,
-  Globe,
   ArrowRight,
   ArrowUpRight,
   Zap,
@@ -377,7 +376,7 @@ export default function Home() {
               {/* Left — copy */}
               <div className="space-y-6">
                 <p className="text-slate-400 text-lg leading-relaxed">
-                  Available for freelance projects, full-time opportunities, or just a great tech conversation. Let's build something memorable together.
+                  Available for freelance projects, full-time opportunities, or just a great tech conversation. Let&apos;s build something memorable together.
                 </p>
                 <div className="space-y-3">
                   {[
